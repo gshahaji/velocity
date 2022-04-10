@@ -1,0 +1,52 @@
+package basic;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BasicFunction {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Sandip\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver b = new ChromeDriver();
+		//
+		b.get("https://www.facebook.com/");
+        b.manage().window().maximize();
+        Thread.sleep(2000);
+		
+		String title = b.getTitle();
+		System.out.println(title);
+		Thread.sleep(2000);
+		
+		String url = b.getCurrentUrl();
+		System.out.println(url);
+		Thread.sleep(2000);
+		//		
+		Dimension d = new Dimension(500, 500);
+		b.manage().window().setSize(d);
+		Thread.sleep(2000);
+		
+		Point p =new Point(200,200);
+		b.manage().window().setPosition(p);
+		Thread.sleep(2000);
+		
+		//
+		b.navigate().to("https://www.google.co.in/");
+		b.manage().window().maximize();
+		Thread.sleep(2000);
+		
+		b.navigate().refresh();
+		Thread.sleep(2000);
+		
+		b.navigate().back();
+		Thread.sleep(2000);
+		
+		b.navigate().forward();
+		Thread.sleep(2000);
+		
+		b.quit();
+		
+	}
+
+}
